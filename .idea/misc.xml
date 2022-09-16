@@ -6,6 +6,9 @@
         <entry key="..\:/android-studio/GaleriaPublica/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/android-studio/GaleriaPublica/app/src/main/res/layout/fragment_grid_view.xml" value="0.36666666666666664" />
         <entry key="..\:/android-studio/GaleriaPublica/app/src/main/res/layout/fragment_list_view.xml" value="0.35260416666666666" />
+        <entry key="..\:/android-studio/GaleriaPublica/app/src/main/res/layout/grid_item.xml" value="0.365625" />
+        <entry key="..\:/android-studio/GaleriaPublica/app/src/main/res/layout/list_item.xml" value="0.3087719298245614" />
+        <entry key="..\:/android-studio/GaleriaPublica/app/src/main/res/menu/botton_nav_menu.xml" value="0.3087719298245614" />
       </map>
     </option>
   </component>
