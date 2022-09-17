@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                   break;
                case R.id.listViewOp:
                   ListViewFragment listViewFragment = ListViewFragment.newInstance();
-                  setFragment(new ListViewFragment());
+                  setFragment(listViewFragment);
                   break;
             }
             return true;
@@ -47,11 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
       });
    }
-
    private void setFragment(GridViewFragment gridViewFragment) {
    }
+
    private void setFragment(ListViewFragment listViewFragment) {
    }
-
-
 }
