@@ -18,6 +18,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            multiDexEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -38,6 +39,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     def paging_version = "3.1.1"
 
-    implementation "androidx.paging:paging-guava:$paging_version"
+    //implementation "androidx.paging:paging-guava:$paging_version"
     implementation "androidx.paging:paging-runtime:$paging_version"
+
 }
