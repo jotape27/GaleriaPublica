@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.paging.PagingData;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,18 +22,14 @@ public class GridViewFragment extends Fragment {
    private MainViewModel mViewModel;
    private View view;
 
+   public GridViewFragment() {
+      // Required empty public constructor
+   }
+
    public static GridViewFragment newInstance() {
       return new GridViewFragment();
    }
 
-   @Override
-   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                            @Nullable Bundle savedInstanceState) {
-      view = inflater.inflate(R.layout.fragment_grid_view, container, false);
-      return view;
-   }
-
-   @Override
    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
       super.onViewCreated(view, savedInstanceState);
       mViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
@@ -47,6 +44,18 @@ public class GridViewFragment extends Fragment {
 
       RecyclerView rvGallery = (RecyclerView) view.findViewById(R.id.rvGrid);
       rvGallery.setAdapter(gridAdapter);
-      rvGallery.setLayoutManager(new LinearLayoutManager(getContext()));
+
+      float w =getResources().getDimension(R.dimen.im_width);
+      int numberColumns = Utils.calculateNoOfColumns(getContext(), w);
+
+      rvGallery.setLayoutManager(new GridLayoutManager(getContext(), numberColumns));
+   }
+
+
+   @Override
+   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                            @Nullable Bundle savedInstanceState) {
+      view = inflater.inflate(R.layout.fragment_grid_view, container, false);
+      return view;
    }
 }
