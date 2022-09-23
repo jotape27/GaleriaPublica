@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.GaleriaPública" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.GaleriaPública" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#81FF88</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">#424242</item>
+        <item name="colorPrimaryVariant">#424242</item>
         <item name="colorOnPrimary">#424242</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>

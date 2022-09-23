@@ -2,11 +2,13 @@ package ferreira.juan.galeriapublica;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuWrapperICS;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -47,9 +49,53 @@ public class MainActivity extends AppCompatActivity {
 
       });
    }
-   private void setFragment(GridViewFragment gridViewFragment) {
+
+   @Override
+   protected void onResume() {
+      super.onResume();
+      List<String> permissions = new ArrayList<>();
+      permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+      checkForPermissions(permissions);
    }
 
-   private void setFragment(ListViewFragment listViewFragment) {
+   private void checkForPermissions(List<String> permissions) {
+      List<String> permissionsNotGranted = new ArrayList<>();
+
+      if(permissionsNotGranted.size() > 0) {
+
+      }else {
+         MainViewModel vm = new ViewModelProvider(this).get(MainViewModel.class);
+         int navigationOpSelected = vm.getNavigationOpSelected();
+         bottomNavigationView.setSelectedItemId(navigationOpSelected);
+      }
+   }
+
+
+   @Override
+   public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+      super.onRequestPermissionsResult(requestCode, permissions,
+
+
+
+      if(permissionsRejected.size() > 0) {
+
+
+
+      }
+      else {
+         MainViewModel vm = new ViewModelProvider(this).get(MainViewModel.class);
+         int navigationOpSelected = vm.getNavigationOpSelected();
+         bottomNavigationView.setSelectedItemId(navigationOpSelected);
+      }
+   }
+
+
+
+
+   void setFragment(Fragment fragment) {
+      FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+      fragmentTransaction.replace(R.id.fragContainer, fragment);
+      fragmentTransaction.addToBackStack(null);
+      fragmentTransaction.commit();
    }
 }
